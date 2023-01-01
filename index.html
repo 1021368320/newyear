@@ -10,7 +10,7 @@
 	p{font-size:48px;}
 	p{font-family:"楷体";}
 	</style>
-    <title>新年快乐，给您拜年了</title>
+    <title>拜年了</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -95,7 +95,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="stage-container remove">
             <div class="page_two hide">
-                <div id="text" style="display:none;"><p>倒计时<br><br>还有<span id="time"></span><br><span id="text1"></span><br>1<br><br>1<br><br>[awa]<br><br>彩蛋:点击屏幕任意地方即可放烟花<br></p></div><!--此处已进行修改，优化了倒计时-->
+                <div id="text" style="display:none;"><p><br><span id="text1"></span><br><span id="time"></span><br>新年快乐!<br>恭喜发财!<br>有对象的百年好合！<br>没对象的早日脱单！<br>小张给您<br>拜年了！！！<br>彩蛋:点击屏幕任意地方即可放烟花<br></p></div><!--此处已进行修改，优化了倒计时-->
                 <div class="type_words" id="contents" style="font-size:1.05rem;line-height:1.5rem;"></div>
             </div>
             <div class="canvas-container">
@@ -253,8 +253,9 @@ var _hmt = _hmt || [];
     var todayHour = today.getHours()
     var todayMinute = today.getMinutes()
     var todaySecond = today.getSeconds()
-    var t1 = Date.UTC(todayYear, 1, 21, 0, 00, 00)
+    var t1 = Date.UTC(todayYear, 1, 22, 0, 00, 00)
     var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond)
+    var t3 = Date.UTC(todayYear, 1, 23, 0, 00, 00)
     var diff = t1 - t2
     var diff2 = t2-t1
     var diffYears = Math.floor(diff / years)
@@ -269,10 +270,11 @@ var _hmt = _hmt || [];
     var diff2Minutes = Math.floor((diff2 - (diff2Years * 365 + diff2Days) * days - diff2Hours * hours) / minutes)
     var diff2Seconds = Math.floor((diff2 - (diff2Years * 365 + diff2Days) * days - diff2Hours * hours - diff2Minutes *
         minutes) / seconds)
-     if(todayMonth==1){document.getElementById("text1").innerHTML ="现在是"+new Date().toLocaleString('zh-CN-u-ca-chinese')
+     document.getElementById("text1").innerHTML ="现在是"+new Date().toLocaleString('zh-CN-u-ca-chinese')
 .replace(/(\d+)\s*?年/, (_,y)=>"甲乙丙丁戊己庚辛壬癸".charAt((y-4)%10) 
-+ "子丑寅卯辰巳午未申酉戌亥".charAt((y-4)%12))}
-     document.getElementById("time").innerHTML =  diffDays + "天" + diffHours + "小时" + diffMinutes + "分钟" + diffSeconds + "秒"+"癸卯年"
++ "子丑寅卯辰巳午未申酉戌亥".charAt((y-4)%12))
+     if(diff>0){document.getElementById("time").innerHTML =  "还有" + diffDays + "天" + diffHours + "小时" + diffMinutes + "分钟" + diffSeconds + "秒"+"癸卯年，"+"在此给您拜个早年！！！"}
+     if(diff<0){document.getElementById("time").innerHTML = "癸卯年已过去"+ diff2Days + "天" + diff2Hours + "小时" + diff2Minutes + "分钟" + diff2Seconds + "秒"+"给您拜年了！！！"}
 }
 time()
 </script>
